@@ -1,7 +1,52 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        Welcome to combine latest
+  <div class="row">
+
+    <div class="col-md-4 slidecontainer d-flex align-items-center bg-light">
+      <strong class="text-primary" id="demo" [innerText]=" currentRating$ | async"></strong>
+      <span>&nbsp;&nbsp;</span>
+      <input type="range" min="0" max="5" 
+      [value]="currentRating$ | async" class="slider" id="myRange" #ref (change)="currentRating$.next(ref.value)">
+    </div>
+
+    <div class="col-md-4 price-container d-flex align-items-center">
+        <select (change)="currentPrice$.next(price.value)" #price class="form-select" [value]="currentPrice$ | async">
+          <option value="all">All Prices</option>
+          <option value="0_50">Below $50</option>
+          <option value="51_100">$51 to $100</option>
+          <option value="101_150">$101 to $150</option>
+          <option value="151_1000">$151 and above</option>
+      </select>
+    </div>
+
+       <div class="col-md-4 price-container d-flex align-items-center">
+        <select (change)="currentCategory$.next(category.value)" #category class="form-select">
+          <option value="all">All Categories</option>
+          <option value="men">Men's clothing</option>
+          <option value="women">Women's clothing</option>
+          <option value="jewelery">Jewelery</option>
+          <option value="electronics">electronics</option>
+      </select>
+    </div>
+
+    
+  </div>
+  <div class="row">
+    <div class="col-md-12 grid-container" *ngIf="productsOnDisplay">
+      <div
+        class="product-card d-flex flex-column justify-content-between align-items-center"
+        *ngFor="let product of productsOnDisplay">
+        <img class="card-img-top" [src]="product.image" alt="Card image cap" />
+        <div class="description">
+          <p><strong>{{ product.title }}</strong></p>
+          <p class="d-flex justify-content-between">
+            <span>
+              <span *ngFor="let r of product.rating.rate | numberLoop" style="color: orange">&#9733;</span>
+              <span *ngFor="let r of 5 - product.rating.rate | numberLoop">&#9734;</span>
+            </span>
+            <strong>${{ product.price}}</strong>
+          </p>
+        </div>
       </div>
     </div>
+  </div>
 </div>

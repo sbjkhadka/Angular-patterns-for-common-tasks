@@ -11,15 +11,17 @@ import { DynamicControlsComponent } from './dynamic-controls/dynamic-controls.co
 import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
+import { RxjsCombineLatestComponent } from './rxjs-combine-latest/rxjs-combine-latest.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     InlineEditingComponent,
     DynamicControlsComponent,
     MenuComponent,
-    HeaderComponent
-  ],
+    HeaderComponent,
+      RxjsCombineLatestComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

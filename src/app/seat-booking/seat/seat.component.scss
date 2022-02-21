@@ -1,23 +1,39 @@
 div {
   border: 1px solid black;
   text-align: center;
-  height: 40px;
-  width: 40px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-//   background-color:green;
+  height: 60px;
+  width: 60px;
+  margin: 0;
+  padding:0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  mat-icon {
+    height: 100%;
+    width: auto;
+    font-size: 60px;
+    position: relative;
+    top: 0;
+    left:10px;
+  }
+  span {
+    color: #FFF;
+    position: relative;
+    top:-8px;
+    right: 29px;
+    font-size: 10px;
+    font-weight: 400;
+  }
 }
 
-.available {
-    background-color: green;
+.blink_me {
+  animation: blinker 0.5s linear infinite;
 }
-.booked {
-    background-color: yellow;
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
-.reserved {
-    background-color: red;
-}
+

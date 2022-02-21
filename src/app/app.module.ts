@@ -18,6 +18,7 @@ import { NumberLoopPipe } from './in-memory-data-service/number-loop.pipe';
 import { SeatBookingComponent } from './seat-booking/seat-booking.component';
 import { SeatComponent } from './seat-booking/seat/seat.component';
 import { SeatDirective } from './seat-booking/seat.directive';
+import { MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { SeatDirective } from './seat-booking/seat.directive';
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false },
     ),
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

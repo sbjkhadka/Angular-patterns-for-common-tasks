@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
-import { Seat } from './seat-interface';
+import { BehaviorSubject, interval } from 'rxjs';
 import { SeatStatus } from './seat-status.enum';
 
 @Directive({
@@ -7,17 +7,18 @@ import { SeatStatus } from './seat-status.enum';
 })
 export class SeatDirective implements OnInit {
 
-  @Input() seatDetail: Seat;
+  @Input() seatDetail: BehaviorSubject<SeatStatus>
   constructor(private element: ElementRef) { }
 
   ngOnInit(): void {
-    if(this.seatDetail.status === SeatStatus.AVAILABLE) {
-      this.element.nativeElement.style.backgroundColor = 'green';
-    } else if (this.seatDetail.status === SeatStatus.BOOKED) {
-      this.element.nativeElement.style.backgroundColor = 'yellow';
-    } else {
-      this.element.nativeElement.style.backgroundColor = 'red';
-    }
+    this.seatDetail.subscribe(seat => {
+      if (seat === SeatStatus.AVAILABLE) {
+        this.element.nativeElement.firstChild.style.color = 'green';
+      } else if (seat === SeatStatus.BOOKED) {
+        this.element.nativeElement.firstChild.style.color = 'red';
+      } else {
+        this.element.nativeElement.firstChild.style.color = 'orange';
+      }
+    });
   }
-
 }

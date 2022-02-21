@@ -1,16 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center border">
-      <h1 class="my-3">Screen</h1>
+<div class="container bg-light border rounded">
+  <div class="row my-1 bg-dark text-light">
+    <div class="col-md-12 text-center border rounded">
+      <h1 class="my-1">Screen</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5 border my-3 seating-area" *ngIf="sideA">
-      <app-seat *ngFor="let seat of sideA" [seat]="seat"></app-seat>
+    <div class="col-md-4 text-center"><span>Available:</span><h1 class="text-success">{{ totalAvailable }}</h1> </div>
+    <div class="col-md-4 text-center"><span>Reserved:</span><h1 class="text-warning">{{ totalReserved }}</h1></div>
+    <div class="col-md-4 text-center"><span>Booked:</span><h1 class="text-danger">{{ totalBooked }}</h1></div>
+  </div>
+  <div class="row my-1">
+    <div class="col-md-5 border rounded my-3 seating-area" *ngIf="sideA">
+      <app-seat *ngFor="let seat of sideA" [seat]="seat" (updateCountEvent)="updateCount()"></app-seat>
     </div>
-    <div class="col-md-2 text-center">Stairs</div>
-    <div class="col-md-5 border my-3 seating-area" *ngIf="sideB">
-      <app-seat *ngFor="let seat of sideB" [seat]="seat"></app-seat>
+    <div class="col-md-2 text-center"></div>
+    <div class="col-md-5 border rounded my-3 seating-area" *ngIf="sideB">
+      <app-seat *ngFor="let seat of sideB" [seat]="seat" (updateCountEvent)="updateCount()"></app-seat>
     </div>
   </div>
 </div>

@@ -1,1 +1,18 @@
-<div class="text-light" appSeat [seatDetail]="seat">{{ seat.id }}</div>
+<div class="text-light border border-dark rounded-circle bg-light" appSeat [seatDetail]="status" [matMenuTriggerFor]="appMenu">
+    <mat-icon class="seat-icon">event_seat</mat-icon>
+    <span #icon>{{ seat.id }}</span>
+</div>
+
+<mat-menu #appMenu="matMenu" class="customize">
+  <ng-template matMenuContent>
+    <button mat-menu-item 
+        (click)="updateSeat(SeatStatus.RESERVED)"
+        *ngIf="status.value === SeatStatus.AVAILABLE">Reserve</button>
+    <button mat-menu-item
+        (click)="updateSeat(SeatStatus.BOOKED)"
+        *ngIf="status.value === SeatStatus.AVAILABLE || status.value === SeatStatus.RESERVED">Book</button>
+    <button mat-menu-item
+        (click)="updateSeat(SeatStatus.AVAILABLE)"
+        *ngIf="status.value === SeatStatus.RESERVED || status.value === SeatStatus.BOOKED" >Cancel Booking/Reservation</button>
+  </ng-template>
+</mat-menu>

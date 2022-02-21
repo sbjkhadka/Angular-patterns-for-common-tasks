@@ -1,10 +1,19 @@
 div.container {
-    div.row {
-        div.seating-area {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: auto;
-         
-        }
+  height: 80vh;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  div.row {
+    div.seating-area {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto;
+      column-gap: auto;
+      padding: 10px;
+      background-color: #9e9e9e;
     }
+  }
 }

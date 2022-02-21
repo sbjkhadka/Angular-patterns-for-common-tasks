@@ -4,12 +4,14 @@ import { DynamicControlsComponent } from './dynamic-controls/dynamic-controls.co
 import { InlineEditingComponent } from './inline-editing/inline-editing.component';
 import { MenuComponent } from './menu/menu.component';
 import { RxjsCombineLatestComponent } from './rxjs-combine-latest/rxjs-combine-latest.component';
+import { SeatBookingComponent } from './seat-booking/seat-booking.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent, pathMatch: 'full' },
   { path: 'inline-editing', component: InlineEditingComponent },
   { path: 'dynamic-control', component: DynamicControlsComponent },
   { path: 'combine-latest', component: RxjsCombineLatestComponent },
+  { path: 'booking', component: SeatBookingComponent },
 ];
 
 @NgModule({

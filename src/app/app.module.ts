@@ -14,19 +14,24 @@ import { RxjsCombineLatestComponent } from './rxjs-combine-latest/rxjs-combine-l
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data-service/in-memory-data.service';
-import { ProductsService } from './in-memory-data-service/products.service';
 import { NumberLoopPipe } from './in-memory-data-service/number-loop.pipe';
+import { SeatBookingComponent } from './seat-booking/seat-booking.component';
+import { SeatComponent } from './seat-booking/seat/seat.component';
+import { SeatDirective } from './seat-booking/seat.directive';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     InlineEditingComponent,
     DynamicControlsComponent,
     MenuComponent,
     HeaderComponent,
     RxjsCombineLatestComponent,
-    NumberLoopPipe
+    NumberLoopPipe,
+    SeatBookingComponent,
+    SeatComponent,
+    SeatDirective
    ],
   imports: [
     BrowserModule,
@@ -37,10 +42,11 @@ import { NumberLoopPipe } from './in-memory-data-service/number-loop.pipe';
     MatIconModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+    InMemoryDataService, { dataEncapsulation: false },
     ),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [SeatDirective]
 })
 export class AppModule { }

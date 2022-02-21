@@ -1,0 +1,23 @@
+div {
+  border: 1px solid black;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+//   background-color:green;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.available {
+    background-color: green;
+}
+.booked {
+    background-color: yellow;
+}
+.reserved {
+    background-color: red;
+}

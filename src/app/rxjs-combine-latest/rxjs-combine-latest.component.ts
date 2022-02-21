@@ -28,9 +28,6 @@ export class RxjsCombineLatestComponent implements OnInit {
 
         const priceMin = price !== 'all' ? price.split('_')[0] : 0;
         const priceMax = price !== 'all' ? price.split('_')[1] : 1000;
-        console.log('rating', rate);
-        console.log('min' + priceMin + ' max' + priceMax);
-        console.log('cat', category);
 
         this.productsOnDisplay = this.products?.filter(product => {
           if (category === 'all') {

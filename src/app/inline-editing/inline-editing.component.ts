@@ -61,10 +61,8 @@ export class InlineEditingComponent implements OnInit {
 
   deleteRow(element: AbstractControl, index: number): void {
     // Make API call to delete this row using id from element
-    console.log(element);
 
     // Update dataSource
-    console.log(index);
     this.rows.removeAt(index);
     this.dataSource.next(new MatTableDataSource<AbstractControl>(this.rows.controls));
   }
